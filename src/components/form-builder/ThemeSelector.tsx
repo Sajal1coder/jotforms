@@ -18,14 +18,10 @@ export function ThemeSelector({ currentTheme, onThemeChange }: ThemeSelectorProp
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-2 px-4 py-2 rounded-lg border hover:bg-gray-50 transition-colors"
-        style={{
-          borderColor: currentTheme.colors.border,
-          backgroundColor: currentTheme.colors.surface,
-        }}
+        className="flex items-center space-x-2 px-4 py-2 rounded-lg border bg-white hover:bg-gray-50 transition-colors shadow-sm"
       >
-        <Palette size={20} style={{ color: currentTheme.colors.primary }} />
-        <span style={{ color: currentTheme.colors.text }}>
+        <Palette size={18} style={{ color: currentTheme.colors.primary }} />
+        <span className="text-gray-700 text-sm font-medium">
           {currentTheme.name}
         </span>
       </button>

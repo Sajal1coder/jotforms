@@ -183,24 +183,28 @@ export function FormBuilder({ initialConfig, onSave }: FormBuilderProps) {
 
         <div className="flex items-center space-x-4">
           {/* View Mode Toggle */}
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-2 bg-white rounded-lg p-1 shadow-sm border">
             <button
               onClick={() => setViewMode('desktop')}
               className={cn(
-                'p-2 rounded',
-                viewMode === 'desktop' ? 'bg-blue-100' : 'hover:bg-gray-100'
+                'p-2 rounded transition-all duration-200',
+                viewMode === 'desktop' 
+                  ? 'bg-blue-500 text-white shadow-sm' 
+                  : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
               )}
             >
-              <Monitor size={20} />
+              <Monitor size={18} />
             </button>
             <button
               onClick={() => setViewMode('mobile')}
               className={cn(
-                'p-2 rounded',
-                viewMode === 'mobile' ? 'bg-blue-100' : 'hover:bg-gray-100'
+                'p-2 rounded transition-all duration-200',
+                viewMode === 'mobile' 
+                  ? 'bg-blue-500 text-white shadow-sm' 
+                  : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
               )}
             >
-              <Smartphone size={20} />
+              <Smartphone size={18} />
             </button>
           </div>
 
@@ -211,30 +215,30 @@ export function FormBuilder({ initialConfig, onSave }: FormBuilderProps) {
           />
 
           {/* Mode Toggle */}
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-2 bg-white rounded-lg p-1 shadow-sm border">
             <button
               onClick={() => setMode('edit')}
               className={cn(
-                'flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors',
+                'flex items-center space-x-2 px-3 py-2 rounded-lg transition-all duration-200',
                 mode === 'edit'
-                  ? 'bg-blue-100 text-blue-700'
-                  : 'hover:bg-gray-100'
+                  ? 'bg-blue-500 text-white shadow-sm'
+                  : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
               )}
             >
-              <Edit size={20} />
-              <span>Edit</span>
+              <Edit size={18} />
+              <span className="text-sm font-medium">Edit</span>
             </button>
             <button
               onClick={() => setMode('preview')}
               className={cn(
-                'flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors',
+                'flex items-center space-x-2 px-3 py-2 rounded-lg transition-all duration-200',
                 mode === 'preview'
-                  ? 'bg-blue-100 text-blue-700'
-                  : 'hover:bg-gray-100'
+                  ? 'bg-blue-500 text-white shadow-sm'
+                  : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
               )}
             >
-              <Eye size={20} />
-              <span>Preview</span>
+              <Eye size={18} />
+              <span className="text-sm font-medium">Preview</span>
             </button>
           </div>
 
@@ -274,7 +278,7 @@ export function FormBuilder({ initialConfig, onSave }: FormBuilderProps) {
                 fields={formConfig.fields}
                 theme={formConfig.theme}
                 mode={mode}
-                selectedFieldId={selectedFieldId}
+                selectedFieldId={selectedFieldId || undefined}
                 onFieldSelect={setSelectedFieldId}
                 onFieldUpdate={handleFieldUpdate}
                 onFieldDelete={handleFieldDelete}
